@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yevgeniy Fomin — Web Studio</title>
+<title>Yevgeniy Fomin | Web Studio</title>
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/main.css">
@@ -57,7 +58,14 @@
   /* ── NAV ── */
   nav { position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:26px 64px;border-bottom:1px solid var(--border);transition:border-color .3s,background .3s,padding .25s ease; background:var(--bg); }
   nav.scrolled { background:var(--nav-bg-scrolled);border-color:var(--border);backdrop-filter:blur(12px);padding:14px 48px; }
-  .nav-logo { font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:var(--text);text-decoration:none; }
+  .nav-logo { display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text); }
+  .nav-logo-img { height:50px;width:50px;object-fit:contain;transition:height .25s ease,width .25s ease; }
+  nav.scrolled .nav-logo-img { height:40px;width:40px; }
+  .logo-light { display:none; }
+  .logo-dark { display:block; }
+  [data-theme="light"] .logo-light { display:block; }
+  [data-theme="light"] .logo-dark { display:none; }
+  .nav-logo-text { font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;line-height:1.2;text-transform:lowercase; }
   .nav-links { display:flex;gap:36px;list-style:none; }
   .nav-links a { color:var(--muted);text-decoration:none;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s; }
   .nav-links a:hover { color:var(--accent); }
@@ -91,21 +99,42 @@
   .btn-ghost { color:var(--text);font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s; }
   .btn-ghost:hover { color:var(--accent); }
   .btn-ghost::after { content:'→'; }
-  .hero-right { display:flex;flex-direction:column;justify-content:flex-end;padding:120px 48px 80px; }
+  .hero-right { display:flex;flex-direction:column;justify-content:flex-end;padding:120px 48px 80px;overflow:hidden; }
+  .hero-cards-eyebrow { font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:20px; }
+  .hero-cards { position:relative;width:100%;height:340px;margin-bottom:48px;display:flex;align-items:center;justify-content:center; }
+  .hero-card { position:absolute;width:260px;aspect-ratio:1/1;border-radius:20px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.25);transition:transform .5s cubic-bezier(.25,.46,.45,.94),box-shadow .5s;text-decoration:none;color:inherit;display:block; }
+  .hero-card img { width:100%;height:100%;object-fit:cover; }
+  .hero-card-tag { position:absolute;top:14px;left:14px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;color:#fff;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);padding:5px 12px;border-radius:20px;text-transform:uppercase;z-index:2; }
+  .hero-card-footer { position:absolute;bottom:0;left:0;right:0;padding:18px 16px;background:linear-gradient(transparent,rgba(0,0,0,.75));display:flex;justify-content:space-between;align-items:flex-end;z-index:2; }
+  .hero-card-name { color:#fff;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;line-height:1.3;max-width:65%; }
+  .hero-card-view { color:rgba(255,255,255,.7);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;transition:color .2s; }
+  .hero-card:hover .hero-card-view { color:#fff; }
+  .hero-card-1 { transform:translateX(-70%) rotate(-12deg);z-index:1; }
+  .hero-card-2 { transform:translateX(-10%) rotate(-4deg);z-index:2; }
+  .hero-card-3 { transform:translateX(40%) rotate(3deg);z-index:3; }
+  .hero-card-1:hover { transform:translateX(-70%) rotate(-12deg) translateY(-8px) scale(1.03);box-shadow:0 20px 60px rgba(0,0,0,.4); }
+  .hero-card-2:hover { transform:translateX(-10%) rotate(-4deg) translateY(-8px) scale(1.03);box-shadow:0 20px 60px rgba(0,0,0,.4); }
+  .hero-card-3:hover { transform:translateX(40%) rotate(3deg) translateY(-8px) scale(1.03);box-shadow:0 20px 60px rgba(0,0,0,.4); }
   .hero-stats { display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:48px; }
+  .hero-promise { grid-column:1/-1;padding:28px 32px;border:1px solid var(--border);margin:-1px 0 0 0;font-family:'DM Sans',sans-serif;font-size:17px;font-weight:400;line-height:1.5;color:var(--text);letter-spacing:.2px;transition:background .4s,border-color .4s; }
   .stat { padding:32px;border:1px solid var(--border);margin:-1px -1px 0 0;transition:background .4s,border-color .4s; }
   .stat-num { font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--accent);line-height:1;margin-bottom:8px; }
   .stat-label { font-size:12px;color:var(--muted);letter-spacing:1px;text-transform:uppercase; }
-  .hero-scroll { position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--muted);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'DM Mono',monospace; }
-  .scroll-line { width:1px;height:48px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollline 2s ease-in-out infinite; }
-  @keyframes scrollline{0%,100%{opacity:1;transform:scaleY(1);transform-origin:top}50%{opacity:.3;transform:scaleY(.5)}}
 
-  /* ── MARQUEE ── */
-  .marquee-wrapper { border-bottom:1px solid var(--border);overflow:hidden;padding:20px 0;background:var(--bg2);transition:background .4s; }
-  .marquee-track { display:flex;gap:60px;animation:marquee 40s linear infinite;width:max-content; }
-  .marquee-item { font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:4px;color:var(--muted);text-transform:uppercase;display:flex;align-items:center;gap:60px;white-space:nowrap; }
-  .marquee-dot { color:var(--accent);font-size:20px; }
-  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  /* ── CLIENTS STRIP ── */
+  .clients-strip { border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:24px 0;display:flex;align-items:center;background:var(--bg2);transition:background .4s;overflow:hidden; }
+  .clients-badge { display:flex;flex-direction:column;align-items:flex-start;gap:4px;white-space:nowrap;padding-left:64px;padding-right:48px;flex-shrink:0;border-right:1px solid var(--border); }
+  .clients-badge-text { font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;color:var(--muted);text-transform:uppercase; }
+  .clients-carousel { overflow:hidden;flex:1;mask-image:linear-gradient(to right,transparent,black 40px,black calc(100% - 40px),transparent); }
+  .clients-track { display:flex;animation:clientsScroll 25s linear infinite;width:max-content; }
+  .client-item { width:160px;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:0 20px; }
+  .client-logo { max-height:30px;max-width:120px;width:auto;height:auto;object-fit:contain;transition:opacity .3s,filter .3s; }
+  .client-logo.logo-redhat { max-height:45px;max-width:180px; }
+  [data-theme="dark"] .client-logo { filter:brightness(0) invert(1);opacity:.4; }
+  [data-theme="dark"] .client-logo:hover { filter:none;opacity:1; }
+  [data-theme="light"] .client-logo { filter:grayscale(1);opacity:.4; }
+  [data-theme="light"] .client-logo:hover { filter:none;opacity:1; }
+  @keyframes clientsScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
   /* ── SECTIONS ── */
   section { border-bottom:1px solid var(--border);transition:border-color .4s; }
@@ -115,19 +144,15 @@
 
   /* ── WORK ── */
   .work-grid { display:grid;grid-template-columns:1fr 1fr; }
-  .work-card { border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:40px;cursor:none;position:relative;overflow:hidden;transition:background .3s; }
+  .work-card { display:block;border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:40px;cursor:none;position:relative;overflow:hidden;transition:background .3s;text-decoration:none;color:inherit; }
   .work-card:nth-child(even){border-right:none;}
   .work-card:hover{background:var(--bg2);}
   .work-card-top { display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px; }
   .work-tag { font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;border:1px solid var(--border);padding:4px 10px; }
   .work-num { font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--muted);letter-spacing:2px; }
   .work-img { width:100%;aspect-ratio:16/9;background:var(--bg3);margin-bottom:24px;overflow:hidden;display:flex;align-items:center;justify-content:center; }
-  .work-img-inner { width:100%;height:100%;transition:transform .5s cubic-bezier(.25,.46,.45,.94);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px; }
+  .work-img-inner { width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.25,.46,.45,.94); }
   .work-card:hover .work-img-inner{transform:scale(1.04);}
-  .card-bg-1{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#4a8fe7!important;}
-  .card-bg-2{background:linear-gradient(135deg,#1a0a0a,#2d1b1b,#4a1a1a);color:#8e3b3b!important;}
-  .card-bg-3{background:linear-gradient(135deg,#0a1a0a,#1b2d1b,#2a4a1a);color:#4a8e3b!important;}
-  .card-bg-4{background:linear-gradient(135deg,#1a1a0a,#2d2d1b,#4a3a0a);color:#b8922a!important;}
   .work-title { font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;margin-bottom:8px; }
   .work-desc { font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:24px; }
   .work-link { font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:8px;transition:gap .2s; }
@@ -218,7 +243,8 @@
 
   /* ── FOOTER ── */
   footer{padding:40px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg2);transition:background .4s;}
-  .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;}
+  .footer-logo{display:flex;align-items:center;gap:10px;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;text-transform:lowercase;}
+  .footer-logo-img{height:28px;width:28px;object-fit:contain;}
   .footer-copy{font-size:12px;color:var(--muted);font-family:'DM Mono',monospace;}
   .footer-links{display:flex;gap:32px;}
   .footer-links a{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:1px;transition:color .2s;}
@@ -238,6 +264,7 @@
     .nav-cta{display:none;}
     .hero{grid-template-columns:1fr;}
     .hero-right{border-top:1px solid var(--border);padding:48px 24px;}
+    .hero-cards{display:none;}
     .hero-left{padding:100px 24px 48px;}
     .work-grid,.about-inner,.contact-inner{grid-template-columns:1fr;}
     .work-card{border-right:none!important;}
@@ -262,7 +289,7 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="nav-logo">YFOMIN</a>
+  <a href="#" class="nav-logo"><img src="assets/images/logo_light.png" alt="YF Logo" class="nav-logo-img logo-dark"><img src="assets/images/logo.png" alt="YF Logo" class="nav-logo-img logo-light"><span class="nav-logo-text">yevgeniy<br>fomin</span></a>
   <ul class="nav-links">
     <li><a href="#work" data-i18n="nav.work">Work</a></li>
     <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
@@ -286,37 +313,79 @@
   <div class="hero-left">
     <div class="hero-eyebrow" data-i18n="hero.eyebrow">Web Studio Prague</div>
     <h1 class="hero-title" data-i18n="hero.title">WEB THAT<br><span>WORKS.</span><br>DESIGN<br>THAT SELLS.</h1>
-    <p class="hero-desc" data-i18n="hero.desc">I build fast, purposeful websites that convert visitors into customers — from landing pages to full e-shops with CMS.</p>
+    <p class="hero-desc" data-i18n="hero.desc">I build fast, purposeful websites that convert visitors into customers. From landing pages to full e-shops with CMS.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary" data-i18n="hero.cta1">Get free prototype</a>
       <a href="#work" class="btn-ghost" data-i18n="hero.cta2">See my work</a>
     </div>
   </div>
   <div class="hero-right">
+    <div class="hero-cards-eyebrow">Projects I worked on</div>
+    <div class="hero-cards">
+      <a href="https://bestgroomstudio.pl/" target="_blank" rel="noopener" class="hero-card hero-card-1">
+        <span class="hero-card-tag">Business Web</span>
+        <img src="assets/images/projects/petgroom_salon.png" alt="Best Groom Studio">
+        <div class="hero-card-footer">
+          <span class="hero-card-name">Best Groom Studio</span>
+        </div>
+      </a>
+      <a href="https://wingz-restaurant.vercel.app/" target="_blank" rel="noopener" class="hero-card hero-card-2">
+        <span class="hero-card-tag">Restaurant</span>
+        <img src="assets/images/projects/wingz.png" alt="Wingz Prague">
+        <div class="hero-card-footer">
+          <span class="hero-card-name">Wingz Prague</span>
+        </div>
+      </a>
+      <a href="https://www.aiffinity.com/" target="_blank" rel="noopener" class="hero-card hero-card-3">
+        <span class="hero-card-tag">Corporate</span>
+        <img src="assets/images/projects/aiffinity.png" alt="AIffinity">
+        <div class="hero-card-footer">
+          <span class="hero-card-name">AIffinity</span>
+          <span class="hero-card-view">↗ View Project</span>
+        </div>
+      </a>
+    </div>
     <div class="hero-stats">
       <div class="hero-status">
         <div class="hero-status-dot"></div>
         <div class="hero-status-text">
-          <div class="hero-status-main">Get response in 24 hours</div>
-          <div class="hero-status-sub">Free consultation</div>
+          <div class="hero-status-main" data-i18n="hero.statusMain">Response in 24 hours</div>
+          <div class="hero-status-sub" data-i18n="hero.statusSub">Free consultation</div>
         </div>
       </div>
-      <div class="stat"><div class="stat-num">5★</div><div class="stat-label" data-i18n="hero.stat2">Reviews</div></div>
-      <div class="stat"><div class="stat-num">3</div><div class="stat-label" data-i18n="hero.stat3">Day avg. kickoff</div></div>
       <div class="stat"><div class="stat-num">CZ</div><div class="stat-label" data-i18n="hero.stat4">Based in Prague</div></div>
+      <div class="hero-promise" data-i18n="hero.promise">Skip the wait. Your website live in days, not months.</div>
     </div>
     <p style="font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:1px;line-height:1.8;">
       <span data-i18n="hero.available">Available for new projects</span><br>
       <span style="color:var(--accent);">● <span data-i18n="hero.status">Currently taking clients</span></span>
     </p>
   </div>
-  <div class="hero-scroll"><div class="scroll-line"></div><span data-i18n="hero.scroll">Scroll</span></div>
+
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee-wrapper">
-  <div class="marquee-track">
-    <div class="marquee-item">Web Design <span class="marquee-dot">◆</span> E-commerce <span class="marquee-dot">◆</span> CMS Development <span class="marquee-dot">◆</span> Landing Pages <span class="marquee-dot">◆</span> UI/UX <span class="marquee-dot">◆</span> Next.js <span class="marquee-dot">◆</span> Shopify <span class="marquee-dot">◆</span> Web Design <span class="marquee-dot">◆</span> E-commerce <span class="marquee-dot">◆</span> CMS Development <span class="marquee-dot">◆</span> Landing Pages <span class="marquee-dot">◆</span> UI/UX <span class="marquee-dot">◆</span> Next.js <span class="marquee-dot">◆</span> Shopify <span class="marquee-dot">◆</span></div>
+<!-- CLIENTS -->
+<div class="clients-strip">
+  <div class="clients-badge">
+    <span class="clients-badge-text" data-i18n="clients.label">Worked with</span>
+  </div>
+  <div class="clients-carousel">
+    <div class="clients-track">
+      <div class="client-item"><img src="assets/images/clients/aiffinity.svg" alt="AIffinity" class="client-logo"></div>
+      <div class="client-item"><img src="assets/images/clients/buhler.png" alt="Bühler" class="client-logo"></div>
+      <div class="client-item"><img src="assets/images/clients/ibm.png" alt="IBM" class="client-logo"></div>
+      <div class="client-item"><img src="assets/images/clients/oracle.png" alt="Oracle" class="client-logo"></div>
+      <div class="client-item"><img src="assets/images/clients/redhat.svg" alt="Red Hat" class="client-logo logo-redhat"></div>
+      <div class="client-item"><img src="assets/images/clients/zyter.png" alt="Zyter" class="client-logo"></div>
+      <div class="client-item"><img src="assets/images/clients/petsalon.png" alt="Pet Salon" class="client-logo"></div>
+      <div class="client-item"><img src="assets/images/clients/aiffinity.svg" alt="AIffinity" class="client-logo"></div>
+      <div class="client-item"><img src="assets/images/clients/buhler.png" alt="Bühler" class="client-logo"></div>
+      <div class="client-item"><img src="assets/images/clients/ibm.png" alt="IBM" class="client-logo"></div>
+      <div class="client-item"><img src="assets/images/clients/oracle.png" alt="Oracle" class="client-logo"></div>
+      <div class="client-item"><img src="assets/images/clients/redhat.svg" alt="Red Hat" class="client-logo logo-redhat"></div>
+      <div class="client-item"><img src="assets/images/clients/zyter.png" alt="Zyter" class="client-logo"></div>
+      <div class="client-item"><img src="assets/images/clients/petsalon.png" alt="Pet Salon" class="client-logo"></div>
+    </div>
   </div>
 </div>
 
@@ -330,34 +399,41 @@
     <a href="#contact" class="btn-ghost" data-i18n="work.cta">Discuss your project</a>
   </div>
   <div class="work-grid">
-    <div class="work-card reveal">
-      <div class="work-card-top"><span class="work-tag" data-i18n="work.tag1">E-shop</span><span class="work-num">01</span></div>
-      <div class="work-img"><div class="work-img-inner card-bg-1">ESHOP PROJECT</div></div>
-      <h3 class="work-title" data-i18n="work.t1">Fashion Boutique E-shop</h3>
-      <p class="work-desc" data-i18n="work.d1">Full e-commerce solution with product management, cart, payment gateway integration and order tracking.</p>
-      <a href="#" class="work-link" data-i18n="work.view">View project</a>
-    </div>
-    <div class="work-card reveal reveal-delay-1">
-      <div class="work-card-top"><span class="work-tag" data-i18n="work.tag2">Landing Page</span><span class="work-num">02</span></div>
-      <div class="work-img"><div class="work-img-inner card-bg-2">LANDING PAGE</div></div>
-      <h3 class="work-title" data-i18n="work.t2">SaaS Product Launch</h3>
-      <p class="work-desc" data-i18n="work.d2">High-converting landing page with animated sections, testimonials, and optimized CTA flow.</p>
-      <a href="#" class="work-link" data-i18n="work.view">View project</a>
-    </div>
-    <div class="work-card reveal reveal-delay-2">
-      <div class="work-card-top"><span class="work-tag" data-i18n="work.tag3">CMS Web</span><span class="work-num">03</span></div>
-      <div class="work-img"><div class="work-img-inner card-bg-3">CMS WEBSITE</div></div>
-      <h3 class="work-title" data-i18n="work.t3">Restaurant &amp; Café Website</h3>
-      <p class="work-desc" data-i18n="work.d3">Elegant website with CMS for menu management, reservations, and blog — client manages it independently.</p>
-      <a href="#" class="work-link" data-i18n="work.view">View project</a>
-    </div>
-    <div class="work-card reveal reveal-delay-3">
-      <div class="work-card-top"><span class="work-tag" data-i18n="work.tag4">Corporate</span><span class="work-num">04</span></div>
-      <div class="work-img"><div class="work-img-inner card-bg-4">CORPORATE SITE</div></div>
-      <h3 class="work-title" data-i18n="work.t4">Architecture Studio</h3>
-      <p class="work-desc" data-i18n="work.d4">Portfolio website with image gallery, project filtering, and multilingual support for an architecture firm.</p>
-      <a href="#" class="work-link" data-i18n="work.view">View project</a>
-    </div>
+    <a href="https://www.aiffinity.com/" target="_blank" rel="noopener" class="work-card reveal">
+      <div class="work-card-top"><span class="work-tag" data-i18n="work.tag1">Corporate Web</span><span class="work-num">01</span></div>
+      <div class="work-img"><img src="assets/images/projects/aiffinity.png" alt="AIffinity Website" class="work-img-inner"></div>
+      <h3 class="work-title" data-i18n="work.t1">AIffinity</h3>
+      <p class="work-desc" data-i18n="work.d1">Corporate website for a biotech company specializing in AI-powered NMR drug discovery and structure determination.</p>
+      <span class="work-link" data-i18n="work.view">View project</span>
+    </a>
+    <a href="https://saas.aiffinity.com/" target="_blank" rel="noopener" class="work-card reveal reveal-delay-1">
+      <div class="work-card-top"><span class="work-tag" data-i18n="work.tag2">SaaS Platform</span><span class="work-num">02</span></div>
+      <div class="work-img"><img src="assets/images/projects/saas_aiffinity.png" alt="AIffinity Platform" class="work-img-inner"></div>
+      <h3 class="work-title" data-i18n="work.t2">AIffinity Platform</h3>
+      <p class="work-desc" data-i18n="work.d2">SaaS web application for AI-powered NMR drug discovery with user authentication, calculator tools and interactive dashboard.</p>
+      <span class="work-link" data-i18n="work.view">View project</span>
+    </a>
+    <a href="https://bestgroomstudio.pl/" target="_blank" rel="noopener" class="work-card reveal reveal-delay-2">
+      <div class="work-card-top"><span class="work-tag" data-i18n="work.tag5">Business Web</span><span class="work-num">03</span></div>
+      <div class="work-img"><img src="assets/images/projects/petgroom_salon.png" alt="Best Groom Studio" class="work-img-inner"></div>
+      <h3 class="work-title" data-i18n="work.t5">Best Groom Studio</h3>
+      <p class="work-desc" data-i18n="work.d5">Pet grooming salon website with appointment booking and bilingual support for a trusted studio in Wrocław, Poland.</p>
+      <span class="work-link" data-i18n="work.view">View project</span>
+    </a>
+    <a href="https://wingz-restaurant.vercel.app/" target="_blank" rel="noopener" class="work-card reveal reveal-delay-3">
+      <div class="work-card-top"><span class="work-tag" data-i18n="work.tag3">Restaurant Web</span><span class="work-num">04</span></div>
+      <div class="work-img"><img src="assets/images/projects/wingz.png" alt="Wingz Prague" class="work-img-inner"></div>
+      <h3 class="work-title" data-i18n="work.t3">Wingz Prague</h3>
+      <p class="work-desc" data-i18n="work.d3">Restaurant website with menu, gallery, location info and bilingual support for an American-style wings spot in Holešovice, Prague.</p>
+      <span class="work-link" data-i18n="work.view">View project</span>
+    </a>
+    <a href="https://akpp.kz/" target="_blank" rel="noopener" class="work-card reveal">
+      <div class="work-card-top"><span class="work-tag" data-i18n="work.tag4">Landing Page</span><span class="work-num">05</span></div>
+      <div class="work-img"><img src="assets/images/projects/akpp.png" alt="Auto Line AKPP" class="work-img-inner"></div>
+      <h3 class="work-title" data-i18n="work.t4">Auto Line AKPP Repair</h3>
+      <p class="work-desc" data-i18n="work.d4">Landing page for a professional automatic transmission repair service with diagnostics info and WhatsApp booking.</p>
+      <span class="work-link" data-i18n="work.view">View project</span>
+    </a>
   </div>
 </section>
 
@@ -453,8 +529,8 @@
       </div>
     </div>
     <div class="about-right reveal reveal-delay-1">
-      <p class="about-bio" data-i18n="about.bio">Hi, I'm <strong>Yevgeniy Fomin</strong> — a web developer and designer based in <strong>Prague</strong>, building digital experiences that actually move the needle for businesses.</p>
-      <p class="about-bio-sub" data-i18n="about.sub">I started building websites years ago out of pure curiosity, and it turned into a profession I genuinely love. I care deeply about the intersection of design and technology — not just making things that look good, but making them work well for real people with real goals.<br><br>Whether you're a startup launching your first product, a small business tired of an outdated site, or an established brand ready for a redesign — I'd love to work with you.<br><br>Every project I take on gets my full attention. No outsourcing. No templates thrown together overnight. Just thoughtful, well-crafted work.</p>
+      <p class="about-bio" data-i18n="about.bio">Hi, I'm <strong>Yevgeniy Fomin</strong>, a web developer based in <strong>Prague</strong>, helping businesses build and improve their digital products.</p>
+      <p class="about-bio-sub" data-i18n="about.sub">I've spent years working as a software developer, building web applications and SaaS platforms for large companies, and now I bring that same level of technical depth to businesses as a freelancer. Whether you need a new website, a web app, or improvements to an existing platform, I can help.<br><br>Working with me directly means no middlemen, no lengthy approval chains, and no bureaucracy. Just fast, focused delivery from someone who actually writes the code. Every project gets my full attention, no outsourcing, no shortcuts.<br><br>If you're a business looking for reliable, experienced development help, I'd love to work with you.</p>
       <a href="#contact" class="btn-primary" data-i18n="about.cta">Let's talk</a>
     </div>
   </div>
@@ -479,17 +555,17 @@
         <div class="contact-info-item"><span class="contact-info-label" data-i18n="contact.emailLbl">Email</span><span class="contact-info-value"><a href="mailto:fomin.yevgeniy@gmail.com">fomin.yevgeniy@gmail.com</a></span></div>
         <div class="contact-info-item"><span class="contact-info-label" data-i18n="contact.locationLbl">Location</span><span class="contact-info-value" data-i18n="contact.locationVal">Prague, Czech Republic</span></div>
         <div class="contact-info-item"><span class="contact-info-label" data-i18n="contact.responseLbl">Response</span><span class="contact-info-value" data-i18n="contact.responseVal">Within 24 hours</span></div>
-        <div class="contact-info-item"><span class="contact-info-label" data-i18n="contact.langsLbl">Languages</span><span class="contact-info-value">Czech · English · Russian · Ukrainian</span></div>
+        <div class="contact-info-item"><span class="contact-info-label" data-i18n="contact.langsLbl">Languages</span><span class="contact-info-value">Czech · English · Russian</span></div>
       </div>
     </div>
     <div class="contact-right reveal reveal-delay-1">
       <div id="contactForm">
         <div class="form-row">
-          <div class="form-group"><label class="form-label" data-i18n="form.name">Your name</label><input type="text" class="form-input" data-ph="form.namePh" placeholder="Jan Novák"></div>
-          <div class="form-group"><label class="form-label" data-i18n="form.email">Email address</label><input type="email" class="form-input" data-ph="form.emailPh" placeholder="jan@firma.cz"></div>
+          <div class="form-group"><label class="form-label" data-i18n="form.name">Your name</label><input type="text" name="from_name" class="form-input" data-ph="form.namePh" placeholder="Jan Novák"></div>
+          <div class="form-group"><label class="form-label" data-i18n="form.email">Email address</label><input type="email" name="from_email" class="form-input" data-ph="form.emailPh" placeholder="jan@firma.cz"></div>
         </div>
         <div style="border-bottom:1px solid var(--border)">
-          <div class="form-group" style="border-right:none"><label class="form-label" data-i18n="form.company">Company / website (optional)</label><input type="text" class="form-input" placeholder="mojefirma.cz"></div>
+          <div class="form-group" style="border-right:none"><label class="form-label" data-i18n="form.company">Company / website (optional)</label><input type="text" name="company" class="form-input" placeholder="mojefirma.cz"></div>
         </div>
         <div>
           <div style="padding:16px 24px 8px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--muted);text-transform:uppercase" data-i18n="form.service">Select service</div>
@@ -500,20 +576,20 @@
           </div>
         </div>
         <div style="border-bottom:1px solid var(--border)">
-          <div class="form-group full" style="border-right:none"><label class="form-label" data-i18n="form.message">Tell me about your project</label><textarea class="form-textarea" data-ph="form.messagePh" placeholder="What do you need, when do you need it, any special requirements..."></textarea></div>
+          <div class="form-group full" style="border-right:none"><label class="form-label" data-i18n="form.message">Tell me about your project</label><textarea name="message" class="form-textarea" data-ph="form.messagePh" placeholder="What do you need, when do you need it, any special requirements..."></textarea></div>
         </div>
         <div class="form-submit-row">
           <button class="submit-btn" onclick="handleSubmit()" data-i18n="form.send">Send message →</button>
         </div>
       </div>
-      <p id="form-success" style="display:none;text-align:center;padding:48px 24px;font-family:'DM Mono',monospace;font-size:13px;color:var(--accent);letter-spacing:2px" data-i18n="form.success">✓ MESSAGE SENT — I'LL BE IN TOUCH SOON.</p>
+      <p id="form-success" style="display:none;text-align:center;padding:48px 24px;font-family:'DM Mono',monospace;font-size:13px;color:var(--accent);letter-spacing:2px" data-i18n="form.success">✓ MESSAGE SENT. I'LL BE IN TOUCH SOON.</p>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">YFOMIN STUDIO</div>
+  <div class="footer-logo"><img src="assets/images/logo_light.png" alt="YF Logo" class="footer-logo-img logo-dark"><img src="assets/images/logo.png" alt="YF Logo" class="footer-logo-img logo-light"><span>yevgeniy fomin</span></div>
   <div class="footer-copy">© 2025 Yevgeniy Fomin. <span data-i18n="footer.rights">All rights reserved.</span></div>
   <div class="footer-links">
     <a href="#">LinkedIn</a>
@@ -523,6 +599,7 @@
 </footer>
 
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="assets/js/translations.js"></script>
 <script src="assets/js/main.js"></script>
 </body>

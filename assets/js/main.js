@@ -49,4 +49,53 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 /* ══════ MISC ══════ */
 function setService(el){document.querySelectorAll('.service-option').forEach(o=>o.classList.remove('active'));el.classList.add('active');}
-function handleSubmit(){document.getElementById('contactForm').style.display='none';document.getElementById('form-success').style.display='block';}
+/* ══════ EMAILJS CONFIG ══════ */
+// Replace these with your actual EmailJS credentials:
+const EMAILJS_PUBLIC_KEY = 'WkSa8hFrWHDcfqxP5';
+const EMAILJS_SERVICE_ID = 'service_yz1mpel';
+const EMAILJS_TEMPLATE_ID = 'template_ozysen6';
+
+emailjs.init(EMAILJS_PUBLIC_KEY);
+
+function handleSubmit() {
+  const form = document.getElementById('contactForm');
+  const btn = form.querySelector('.submit-btn');
+  const originalText = btn.textContent;
+
+  // Gather form data
+  const fromName = form.querySelector('[name="from_name"]').value;
+  const fromEmail = form.querySelector('[name="from_email"]').value;
+  const msg = form.querySelector('[name="message"]').value;
+  const params = {
+    from_name: fromName,
+    name: fromName,
+    from_email: fromEmail,
+    email: fromEmail,
+    company: form.querySelector('[name="company"]').value,
+    service: form.querySelector('.service-option.active .service-name').textContent,
+    message: msg,
+    title: msg
+  };
+
+  // Basic validation
+  if (!params.from_name || !params.from_email || !params.message) {
+    btn.textContent = 'Please fill required fields';
+    setTimeout(() => { btn.textContent = originalText; }, 2000);
+    return;
+  }
+
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params)
+    .then(() => {
+      form.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    })
+    .catch((err) => {
+      console.error('EmailJS error:', err);
+      btn.textContent = 'Error, try again';
+      btn.disabled = false;
+      setTimeout(() => { btn.textContent = originalText; }, 3000);
+    });
+}
