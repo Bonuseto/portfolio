@@ -29,8 +29,6 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  overscroll-behavior-y: none;
-  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -39,10 +37,17 @@ body {
   font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   font-weight: 300;
   overflow-x: hidden;
-  overscroll-behavior-y: none;
   max-width: 100vw;
   cursor: none;
   transition: background 0.4s, color 0.4s;
+}
+
+/* Prevent iOS overscroll bounce — touch devices only */
+@media (hover: none) and (pointer: coarse) {
+  html, body {
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* Custom cursor */
