@@ -1,6 +1,45 @@
 /* ══════ TRANSLATIONS ══════ */
 const T = window.T;
 
+/* ══════ ANALYTICS (GA4) ══════ */
+function trackEvent(name, params) {
+  if (typeof window.gtag !== 'function') return;
+  window.gtag('event', name, params);
+}
+
+function getClickableTarget(evTarget) {
+  if (!(evTarget instanceof Element)) return null;
+  return evTarget.closest('a, button, [role="button"], [data-track], .work-card, .pricing-btn, .btn-primary, .btn-ghost, .nav-cta');
+}
+
+function describeClickable(el) {
+  const text = (el.getAttribute('aria-label') || el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 80);
+  const id = el.id ? `#${el.id}` : '';
+  const cls = el.classList && el.classList.length ? `.${Array.from(el.classList).slice(0, 3).join('.')}` : '';
+  const tag = el.tagName ? el.tagName.toLowerCase() : 'element';
+  const href = el instanceof HTMLAnchorElement ? el.href : '';
+  return {
+    text,
+    element: `${tag}${id}${cls}`,
+    href
+  };
+}
+
+document.addEventListener('click', (e) => {
+  const target = getClickableTarget(e.target);
+  if (!target) return;
+
+  const d = describeClickable(target);
+  const isOutbound = !!(d.href && !d.href.startsWith(location.origin));
+
+  trackEvent('click', {
+    event_category: 'engagement',
+    event_label: d.text || d.element,
+    link_url: d.href || undefined,
+    outbound: isOutbound ? true : undefined
+  });
+});
+
 /* ══════ LANG SWITCHER ══════ */
 let currentLang = 'en';
 
