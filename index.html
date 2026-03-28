@@ -134,7 +134,7 @@
   .hero-eyebrow::before { content:'';display:block;width:40px;height:1px;background:var(--accent); }
   .hero-title { font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,9vw,128px);line-height:.9;letter-spacing:-1px;margin-bottom:48px; }
   .hero-title span { color:var(--accent); }
-  .hero-desc { font-size:16px;line-height:1.7;color:var(--muted);max-width:380px;margin-bottom:48px; }
+  .hero-desc { font-size:16px;line-height:1.7;color:var(--muted);max-width:380px;margin-bottom:48px;min-height:6.8em; }
   .hero-actions { display:flex;gap:16px;align-items:center; }
   .btn-primary { background:var(--accent);color:var(--bg);padding:16px 36px;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500;text-decoration:none;display:inline-block;transition:background .2s,transform .2s; }
   .btn-primary:hover { background:var(--accent2);transform:translateY(-2px); }
@@ -170,7 +170,7 @@
   .clients-badge-text { font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;color:var(--muted);text-transform:uppercase; }
   .clients-carousel { overflow:hidden;flex:1;mask-image:linear-gradient(to right,transparent,black 40px,black calc(100% - 40px),transparent); }
   .clients-track { display:flex;animation:clientsScroll 25s linear infinite;width:max-content; }
-.client-item { width:160px;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:0 20px; }
+.client-item { width:160px;min-height:48px;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:0 20px; }
 .client-item picture { display:contents; }
 .client-logo { max-height:30px;max-width:120px;width:auto;height:auto;object-fit:contain;transition:opacity .3s,filter .3s; }
   .client-logo.logo-redhat { max-height:45px;max-width:180px; }
@@ -423,20 +423,20 @@
   </div>
   <div class="clients-carousel">
     <div class="clients-track">
-      <div class="client-item"><img src="assets/images/clients/aiffinity.svg" alt="AIffinity" class="client-logo" loading="lazy" decoding="async"></div>
-      <div class="client-item"><picture><source srcset="assets/images/clients/buhler.webp" type="image/webp"><img src="assets/images/clients/buhler.png" alt="Bühler" class="client-logo" loading="lazy" decoding="async"></picture></div>
-      <div class="client-item"><picture><source srcset="assets/images/clients/ibm.webp" type="image/webp"><img src="assets/images/clients/ibm.png" alt="IBM" class="client-logo" loading="lazy" decoding="async"></picture></div>
-      <div class="client-item"><picture><source srcset="assets/images/clients/oracle.webp" type="image/webp"><img src="assets/images/clients/oracle.png" alt="Oracle" class="client-logo" loading="lazy" decoding="async"></picture></div>
-      <div class="client-item"><img src="assets/images/clients/redhat.svg" alt="Red Hat" class="client-logo logo-redhat" loading="lazy" decoding="async"></div>
-      <div class="client-item"><picture><source srcset="assets/images/clients/zyter.webp" type="image/webp"><img src="assets/images/clients/zyter.png" alt="Zyter" class="client-logo" loading="lazy" decoding="async"></picture></div>
-      <div class="client-item"><picture><source srcset="assets/images/clients/petsalon.webp" type="image/webp"><img src="assets/images/clients/petsalon.png" alt="Pet Salon" class="client-logo" loading="lazy" decoding="async"></picture></div>
-      <div class="client-item"><img src="assets/images/clients/aiffinity.svg" alt="AIffinity" class="client-logo" loading="lazy" decoding="async"></div>
-      <div class="client-item"><picture><source srcset="assets/images/clients/buhler.webp" type="image/webp"><img src="assets/images/clients/buhler.png" alt="Bühler" class="client-logo" loading="lazy" decoding="async"></picture></div>
-      <div class="client-item"><picture><source srcset="assets/images/clients/ibm.webp" type="image/webp"><img src="assets/images/clients/ibm.png" alt="IBM" class="client-logo" loading="lazy" decoding="async"></picture></div>
-      <div class="client-item"><picture><source srcset="assets/images/clients/oracle.webp" type="image/webp"><img src="assets/images/clients/oracle.png" alt="Oracle" class="client-logo" loading="lazy" decoding="async"></picture></div>
-      <div class="client-item"><img src="assets/images/clients/redhat.svg" alt="Red Hat" class="client-logo logo-redhat" loading="lazy" decoding="async"></div>
-      <div class="client-item"><picture><source srcset="assets/images/clients/zyter.webp" type="image/webp"><img src="assets/images/clients/zyter.png" alt="Zyter" class="client-logo" loading="lazy" decoding="async"></picture></div>
-      <div class="client-item"><picture><source srcset="assets/images/clients/petsalon.webp" type="image/webp"><img src="assets/images/clients/petsalon.png" alt="Pet Salon" class="client-logo" loading="lazy" decoding="async"></picture></div>
+      <div class="client-item"><img src="assets/images/clients/aiffinity.svg" alt="AIffinity" class="client-logo" width="120" height="30" loading="lazy" decoding="async"></div>
+      <div class="client-item"><picture><source srcset="assets/images/clients/buhler.webp" type="image/webp"><img src="assets/images/clients/buhler.png" alt="Bühler" class="client-logo" width="120" height="30" loading="lazy" decoding="async"></picture></div>
+      <div class="client-item"><picture><source srcset="assets/images/clients/ibm.webp" type="image/webp"><img src="assets/images/clients/ibm.png" alt="IBM" class="client-logo" width="120" height="30" loading="lazy" decoding="async"></picture></div>
+      <div class="client-item"><picture><source srcset="assets/images/clients/oracle.webp" type="image/webp"><img src="assets/images/clients/oracle.png" alt="Oracle" class="client-logo" width="120" height="30" loading="lazy" decoding="async"></picture></div>
+      <div class="client-item"><img src="assets/images/clients/redhat.svg" alt="Red Hat" class="client-logo logo-redhat" width="180" height="45" loading="lazy" decoding="async"></div>
+      <div class="client-item"><picture><source srcset="assets/images/clients/zyter.webp" type="image/webp"><img src="assets/images/clients/zyter.png" alt="Zyter" class="client-logo" width="120" height="30" loading="lazy" decoding="async"></picture></div>
+      <div class="client-item"><picture><source srcset="assets/images/clients/petsalon.webp" type="image/webp"><img src="assets/images/clients/petsalon.png" alt="Pet Salon" class="client-logo" width="120" height="30" loading="lazy" decoding="async"></picture></div>
+      <div class="client-item"><img src="assets/images/clients/aiffinity.svg" alt="AIffinity" class="client-logo" width="120" height="30" loading="lazy" decoding="async"></div>
+      <div class="client-item"><picture><source srcset="assets/images/clients/buhler.webp" type="image/webp"><img src="assets/images/clients/buhler.png" alt="Bühler" class="client-logo" width="120" height="30" loading="lazy" decoding="async"></picture></div>
+      <div class="client-item"><picture><source srcset="assets/images/clients/ibm.webp" type="image/webp"><img src="assets/images/clients/ibm.png" alt="IBM" class="client-logo" width="120" height="30" loading="lazy" decoding="async"></picture></div>
+      <div class="client-item"><picture><source srcset="assets/images/clients/oracle.webp" type="image/webp"><img src="assets/images/clients/oracle.png" alt="Oracle" class="client-logo" width="120" height="30" loading="lazy" decoding="async"></picture></div>
+      <div class="client-item"><img src="assets/images/clients/redhat.svg" alt="Red Hat" class="client-logo logo-redhat" width="180" height="45" loading="lazy" decoding="async"></div>
+      <div class="client-item"><picture><source srcset="assets/images/clients/zyter.webp" type="image/webp"><img src="assets/images/clients/zyter.png" alt="Zyter" class="client-logo" width="120" height="30" loading="lazy" decoding="async"></picture></div>
+      <div class="client-item"><picture><source srcset="assets/images/clients/petsalon.webp" type="image/webp"><img src="assets/images/clients/petsalon.png" alt="Pet Salon" class="client-logo" width="120" height="30" loading="lazy" decoding="async"></picture></div>
     </div>
   </div>
 </div>
@@ -572,7 +572,7 @@
   <div class="about-inner">
     <div class="about-left reveal">
       <div class="about-portrait">
-        <img src="assets/images/yevgeniy_fomin.jpg" alt="Portrait of Yevgeniy Fomin" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;">
+        <img src="assets/images/yevgeniy_fomin.jpg" alt="Portrait of Yevgeniy Fomin" width="420" height="560" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;">
       </div>
       <div class="skills-grid">
         <span class="skill-tag">Next.js</span><span class="skill-tag">React</span><span class="skill-tag">TypeScript</span>
@@ -641,7 +641,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo"><img src="assets/images/logo_light.png" alt="YF Logo" class="footer-logo-img logo-dark" loading="lazy" decoding="async"><img src="assets/images/logo.png" alt="YF Logo" class="footer-logo-img logo-light" loading="lazy" decoding="async"><span>yevgeniy fomin</span></div>
+  <div class="footer-logo"><img src="assets/images/logo_light.png" alt="YF Logo" class="footer-logo-img logo-dark" width="28" height="28" loading="lazy" decoding="async"><img src="assets/images/logo.png" alt="YF Logo" class="footer-logo-img logo-light" width="28" height="28" loading="lazy" decoding="async"><span>yevgeniy fomin</span></div>
   <div class="footer-copy">© 2025 Yevgeniy Fomin. <span data-i18n="footer.rights">All rights reserved.</span></div>
   <div class="footer-links">
     <a href="#">LinkedIn</a>

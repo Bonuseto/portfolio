@@ -94,7 +94,7 @@ nav.scrolled .nav-logo-img { height:40px;width:40px; }
 .hero-eyebrow::before { content:'';display:block;width:40px;height:1px;background:var(--accent); }
 .hero-title { font-family:'Bebas Neue',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:clamp(72px,9vw,128px);line-height:.9;letter-spacing:-1px;margin-bottom:48px; }
 .hero-title span { color:var(--accent); }
-.hero-desc { font-size:16px;line-height:1.7;color:var(--muted);max-width:380px;margin-bottom:48px; }
+.hero-desc { font-size:16px;line-height:1.7;color:var(--muted);max-width:380px;margin-bottom:48px;min-height:6.8em; }
 .hero-actions { display:flex;gap:16px;align-items:center; }
 .btn-primary { background:var(--accent);color:var(--bg);padding:16px 36px;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500;text-decoration:none;display:inline-block;transition:background .2s,transform .2s; }
 .btn-primary:hover { background:var(--accent2);transform:translateY(-2px); }
@@ -168,7 +168,7 @@ nav.scrolled .nav-logo-img { height:40px;width:40px; }
 .clients-badge-text { font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;color:var(--muted);text-transform:uppercase; }
 .clients-carousel { overflow:hidden;flex:1;mask-image:linear-gradient(to right,transparent,black 40px,black calc(100% - 40px),transparent); }
 .clients-track { display:flex;animation:clientsScroll 25s linear infinite;width:max-content; }
-.client-item { width:160px;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:0 20px; }
+.client-item { width:160px;min-height:48px;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:0 20px; }
 .client-item picture { display:contents; }
 .client-logo { max-height:30px;max-width:120px;width:auto;height:auto;object-fit:contain;transition:opacity .3s,filter .3s; }
 .client-logo.logo-redhat { max-height:45px;max-width:180px; }
