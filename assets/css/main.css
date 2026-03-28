@@ -168,6 +168,7 @@ nav.scrolled .nav-logo-img { height:40px;width:40px; }
 .clients-carousel { overflow:hidden;flex:1;mask-image:linear-gradient(to right,transparent,black 40px,black calc(100% - 40px),transparent); }
 .clients-track { display:flex;animation:clientsScroll 25s linear infinite;width:max-content; }
 .client-item { width:160px;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:0 20px; }
+.client-item picture { display:contents; }
 .client-logo { max-height:30px;max-width:120px;width:auto;height:auto;object-fit:contain;transition:opacity .3s,filter .3s; }
 .client-logo.logo-redhat { max-height:45px;max-width:180px; }
 [data-theme="dark"] .client-logo { filter:brightness(0) invert(1);opacity:.4; }
