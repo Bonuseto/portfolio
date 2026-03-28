@@ -29,19 +29,13 @@
 <meta name="twitter:image" content="https://yfomin.com/assets/images/og-share.png">
 <meta name="twitter:image:alt" content="Yevgeniy Fomin — Web Studio Prague: fast websites and e-shops">
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GCJH1VB269"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-GCJH1VB269');
-</script>
-
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/main.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;family=DM+Mono:wght@400;500&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;family=DM+Mono:wght@400;500&amp;display=swap"></noscript>
+<link rel="stylesheet" href="assets/css/main.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="assets/css/main.css"></noscript>
 <style>
 
   /* ── DARK THEME (default) ── */
@@ -347,7 +341,7 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="nav-logo"><img src="assets/images/logo_light.png" alt="YF Logo" class="nav-logo-img logo-dark"><img src="assets/images/logo.png" alt="YF Logo" class="nav-logo-img logo-light"><span class="nav-logo-text">yevgeniy<br>fomin</span></a>
+  <a href="#" class="nav-logo"><img src="assets/images/logo_light.png" alt="YF Logo" class="nav-logo-img logo-dark" width="96" height="96" decoding="async" fetchpriority="high" srcset="assets/images/logo_light.png 96w" sizes="50px"><img src="assets/images/logo.png" alt="YF Logo" class="nav-logo-img logo-light" width="96" height="96" decoding="async" fetchpriority="low" srcset="assets/images/logo.png 96w" sizes="50px"><span class="nav-logo-text">yevgeniy<br>fomin</span></a>
   <ul class="nav-links">
     <li><a href="#work" data-i18n="nav.work">Work</a></li>
     <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
@@ -382,21 +376,21 @@
     <div class="hero-cards">
       <a href="https://bestgroomstudio.pl/" target="_blank" rel="noopener" class="hero-card hero-card-1">
         <span class="hero-card-tag">Business Web</span>
-        <picture><source srcset="assets/images/projects/petgroom_salon.webp" type="image/webp"><img src="assets/images/projects/petgroom_salon.png" alt="Best Groom Studio" loading="lazy" decoding="async"></picture>
+        <picture><source type="image/webp" srcset="assets/images/projects/petgroom_salon-hero.webp 520w, assets/images/projects/petgroom_salon.webp 1280w" sizes="260px"><source type="image/png" srcset="assets/images/projects/petgroom_salon-hero.png 520w, assets/images/projects/petgroom_salon.png 1280w" sizes="260px"><img src="assets/images/projects/petgroom_salon-hero.png" alt="Best Groom Studio" width="260" height="260" loading="lazy" decoding="async" sizes="260px" srcset="assets/images/projects/petgroom_salon-hero.png 520w, assets/images/projects/petgroom_salon.png 1280w"></picture>
         <div class="hero-card-footer">
           <span class="hero-card-name">Best Groom Studio</span>
         </div>
       </a>
       <a href="https://wingz-restaurant.vercel.app/" target="_blank" rel="noopener" class="hero-card hero-card-2">
         <span class="hero-card-tag">Restaurant</span>
-        <picture><source srcset="assets/images/projects/wingz.webp" type="image/webp"><img src="assets/images/projects/wingz.png" alt="Wingz Prague" loading="lazy" decoding="async"></picture>
+        <picture><source type="image/webp" srcset="assets/images/projects/wingz-hero.webp 520w, assets/images/projects/wingz.webp 1280w" sizes="260px"><source type="image/png" srcset="assets/images/projects/wingz-hero.png 520w, assets/images/projects/wingz.png 1280w" sizes="260px"><img src="assets/images/projects/wingz-hero.png" alt="Wingz Prague" width="260" height="260" loading="lazy" decoding="async" sizes="260px" srcset="assets/images/projects/wingz-hero.png 520w, assets/images/projects/wingz.png 1280w"></picture>
         <div class="hero-card-footer">
           <span class="hero-card-name">Wingz Prague</span>
         </div>
       </a>
       <a href="https://www.aiffinity.com/" target="_blank" rel="noopener" class="hero-card hero-card-3">
         <span class="hero-card-tag">Corporate</span>
-        <picture><source srcset="assets/images/projects/aiffinity.webp" type="image/webp"><img src="assets/images/projects/aiffinity.png" alt="AIffinity" loading="lazy" decoding="async" fetchpriority="high"></picture>
+        <picture><source type="image/webp" srcset="assets/images/projects/aiffinity-hero.webp 520w, assets/images/projects/aiffinity.webp 1280w" sizes="260px"><source type="image/png" srcset="assets/images/projects/aiffinity-hero.png 520w, assets/images/projects/aiffinity.png 1280w" sizes="260px"><img src="assets/images/projects/aiffinity-hero.png" alt="AIffinity" width="260" height="260" loading="lazy" decoding="async" fetchpriority="high" sizes="260px" srcset="assets/images/projects/aiffinity-hero.png 520w, assets/images/projects/aiffinity.png 1280w"></picture>
         <div class="hero-card-footer">
           <span class="hero-card-name">AIffinity</span>
           <span class="hero-card-view">↗ View Project</span>
@@ -459,35 +453,35 @@
   <div class="work-grid">
     <a href="https://www.aiffinity.com/" target="_blank" rel="noopener" class="work-card reveal">
       <div class="work-card-top"><span class="work-tag" data-i18n="work.tag1">Corporate Web</span><span class="work-num">01</span></div>
-      <div class="work-img"><picture><source srcset="assets/images/projects/aiffinity.webp" type="image/webp"><img src="assets/images/projects/aiffinity.png" alt="AIffinity Website" class="work-img-inner" loading="lazy" decoding="async"></picture></div>
+      <div class="work-img"><picture><source type="image/webp" srcset="assets/images/projects/aiffinity-work.webp 800w, assets/images/projects/aiffinity.webp 1280w" sizes="(max-width:900px) 100vw, 50vw"><source type="image/png" srcset="assets/images/projects/aiffinity-work.png 800w, assets/images/projects/aiffinity.png 1280w" sizes="(max-width:900px) 100vw, 50vw"><img src="assets/images/projects/aiffinity-work.png" alt="AIffinity Website" class="work-img-inner" width="800" height="450" loading="lazy" decoding="async" sizes="(max-width:900px) 100vw, 50vw" srcset="assets/images/projects/aiffinity-work.png 800w, assets/images/projects/aiffinity.png 1280w"></picture></div>
       <h3 class="work-title" data-i18n="work.t1">AIffinity</h3>
       <p class="work-desc" data-i18n="work.d1">Corporate website for a biotech company specializing in AI-powered NMR drug discovery and structure determination.</p>
       <span class="work-link" data-i18n="work.view">View project</span>
     </a>
     <a href="https://saas.aiffinity.com/" target="_blank" rel="noopener" class="work-card reveal reveal-delay-1">
       <div class="work-card-top"><span class="work-tag" data-i18n="work.tag2">SaaS Platform</span><span class="work-num">02</span></div>
-      <div class="work-img"><picture><source srcset="assets/images/projects/saas_aiffinity.webp" type="image/webp"><img src="assets/images/projects/saas_aiffinity.png" alt="AIffinity Platform" class="work-img-inner" loading="lazy" decoding="async"></picture></div>
+      <div class="work-img"><picture><source type="image/webp" srcset="assets/images/projects/saas_aiffinity-work.webp 800w, assets/images/projects/saas_aiffinity.webp 1280w" sizes="(max-width:900px) 100vw, 50vw"><source type="image/png" srcset="assets/images/projects/saas_aiffinity-work.png 800w, assets/images/projects/saas_aiffinity.png 1280w" sizes="(max-width:900px) 100vw, 50vw"><img src="assets/images/projects/saas_aiffinity-work.png" alt="AIffinity Platform" class="work-img-inner" width="800" height="450" loading="lazy" decoding="async" sizes="(max-width:900px) 100vw, 50vw" srcset="assets/images/projects/saas_aiffinity-work.png 800w, assets/images/projects/saas_aiffinity.png 1280w"></picture></div>
       <h3 class="work-title" data-i18n="work.t2">AIffinity Platform</h3>
       <p class="work-desc" data-i18n="work.d2">SaaS web application for AI-powered NMR drug discovery with user authentication, calculator tools and interactive dashboard.</p>
       <span class="work-link" data-i18n="work.view">View project</span>
     </a>
     <a href="https://bestgroomstudio.pl/" target="_blank" rel="noopener" class="work-card reveal reveal-delay-2">
       <div class="work-card-top"><span class="work-tag" data-i18n="work.tag5">Business Web</span><span class="work-num">03</span></div>
-      <div class="work-img"><picture><source srcset="assets/images/projects/petgroom_salon.webp" type="image/webp"><img src="assets/images/projects/petgroom_salon.png" alt="Best Groom Studio" class="work-img-inner" loading="lazy" decoding="async"></picture></div>
+      <div class="work-img"><picture><source type="image/webp" srcset="assets/images/projects/petgroom_salon-work.webp 800w, assets/images/projects/petgroom_salon.webp 1280w" sizes="(max-width:900px) 100vw, 50vw"><source type="image/png" srcset="assets/images/projects/petgroom_salon-work.png 800w, assets/images/projects/petgroom_salon.png 1280w" sizes="(max-width:900px) 100vw, 50vw"><img src="assets/images/projects/petgroom_salon-work.png" alt="Best Groom Studio" class="work-img-inner" width="800" height="450" loading="lazy" decoding="async" sizes="(max-width:900px) 100vw, 50vw" srcset="assets/images/projects/petgroom_salon-work.png 800w, assets/images/projects/petgroom_salon.png 1280w"></picture></div>
       <h3 class="work-title" data-i18n="work.t5">Best Groom Studio</h3>
       <p class="work-desc" data-i18n="work.d5">Pet grooming salon website with appointment booking and bilingual support for a trusted studio in Wrocław, Poland.</p>
       <span class="work-link" data-i18n="work.view">View project</span>
     </a>
     <a href="https://wingz-restaurant.vercel.app/" target="_blank" rel="noopener" class="work-card reveal reveal-delay-3">
       <div class="work-card-top"><span class="work-tag" data-i18n="work.tag3">Restaurant Web</span><span class="work-num">04</span></div>
-      <div class="work-img"><picture><source srcset="assets/images/projects/wingz.webp" type="image/webp"><img src="assets/images/projects/wingz.png" alt="Wingz Prague" class="work-img-inner" loading="lazy" decoding="async"></picture></div>
+      <div class="work-img"><picture><source type="image/webp" srcset="assets/images/projects/wingz-work.webp 800w, assets/images/projects/wingz.webp 1280w" sizes="(max-width:900px) 100vw, 50vw"><source type="image/png" srcset="assets/images/projects/wingz-work.png 800w, assets/images/projects/wingz.png 1280w" sizes="(max-width:900px) 100vw, 50vw"><img src="assets/images/projects/wingz-work.png" alt="Wingz Prague" class="work-img-inner" width="800" height="450" loading="lazy" decoding="async" sizes="(max-width:900px) 100vw, 50vw" srcset="assets/images/projects/wingz-work.png 800w, assets/images/projects/wingz.png 1280w"></picture></div>
       <h3 class="work-title" data-i18n="work.t3">Wingz Prague</h3>
       <p class="work-desc" data-i18n="work.d3">Restaurant website with menu, gallery, location info and bilingual support for an American-style wings spot in Holešovice, Prague.</p>
       <span class="work-link" data-i18n="work.view">View project</span>
     </a>
     <a href="https://akpp.kz/" target="_blank" rel="noopener" class="work-card reveal">
       <div class="work-card-top"><span class="work-tag" data-i18n="work.tag4">Landing Page</span><span class="work-num">05</span></div>
-      <div class="work-img"><picture><source srcset="assets/images/projects/akpp.webp" type="image/webp"><img src="assets/images/projects/akpp.png" alt="Auto Line AKPP" class="work-img-inner" loading="lazy" decoding="async"></picture></div>
+      <div class="work-img"><picture><source type="image/webp" srcset="assets/images/projects/akpp-work.webp 800w, assets/images/projects/akpp.webp 1280w" sizes="(max-width:900px) 100vw, 50vw"><source type="image/png" srcset="assets/images/projects/akpp-work.png 800w, assets/images/projects/akpp.png 1280w" sizes="(max-width:900px) 100vw, 50vw"><img src="assets/images/projects/akpp-work.png" alt="Auto Line AKPP" class="work-img-inner" width="800" height="450" loading="lazy" decoding="async" sizes="(max-width:900px) 100vw, 50vw" srcset="assets/images/projects/akpp-work.png 800w, assets/images/projects/akpp.png 1280w"></picture></div>
       <h3 class="work-title" data-i18n="work.t4">Auto Line AKPP Repair</h3>
       <p class="work-desc" data-i18n="work.d4">Landing page for a professional automatic transmission repair service with diagnostics info and WhatsApp booking.</p>
       <span class="work-link" data-i18n="work.view">View project</span>
@@ -657,8 +651,30 @@
 </footer>
 
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script src="assets/js/translations.js"></script>
-<script src="assets/js/main.js"></script>
+<script>
+(function () {
+  function loadGa() {
+    var s = document.createElement("script");
+    s.src = "https://www.googletagmanager.com/gtag/js?id=G-GCJH1VB269";
+    s.async = true;
+    document.head.appendChild(s);
+    s.onload = function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag("js", new Date());
+      gtag("config", "G-GCJH1VB269");
+    };
+  }
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(loadGa, { timeout: 4000 });
+  } else {
+    window.addEventListener("load", function () { setTimeout(loadGa, 2500); });
+  }
+})();
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script defer src="assets/js/translations.js"></script>
+<script defer src="assets/js/main.js"></script>
 </body>
 </html>
